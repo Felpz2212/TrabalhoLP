@@ -1,0 +1,37 @@
+﻿@model Hospital_.Models.Medico
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1> style="color:aliceblue"Detalhes dos Medicos</h1>
+
+<div style="color:aliceblue">
+    <h4 style="color:aliceblue">Medico</h4>
+    <hr />
+    <dl style="color:aliceblue" class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.especialidade)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.especialidade)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.id">Editar</a> |
+    <a asp-action="Index">Voltar para Lista</a>
+</div>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Hospital_.Models.Consulta>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="color:aliceblue">Index</h1>
+
+<p style="color:aliceblue">
+    <a asp-action="Create">Inserir Consulta</a>
+</p>
+<table style="color:aliceblue" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.paciente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.medico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.medicamento)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.paciente.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.medico.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.medicamento.nome)
+            </td>
+            <td>
+                <a style="color:aliceblue" asp-action="Edit" asp-route-id="@item.id">Editar</a> |
+                <a style="color:aliceblue" asp-action="Details" asp-route-id="@item.id">Detlahes</a> |
+                <a style="color:aliceblue" asp-action="Delete" asp-route-id="@item.id">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
